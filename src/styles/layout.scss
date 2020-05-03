@@ -1,6 +1,8 @@
 *{
     padding: 0;
     margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 body, html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,4 +11,13 @@ body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.flex{
+    display:flex;
+    flex-direction: row;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
