@@ -20,6 +20,13 @@ class Screen extends Component{
                                 <img src={playButton} style={{marginTop:2, marginRight:4, height:9, width:10}} alt="100%"/>
                             </div>
                         </nav>
+                        <ul className="optionsList">
+                            <li className="selected">Music</li>
+                            <li>Youtube</li>
+                            <li>Photos</li>
+                            <li>Games</li>
+                            <li>Settings</li>
+                        </ul>
                     </div>
                     <div className="home-section">
                         <img src={BG} style={{width:'100%', height:'100%'}} alt=""/>

@@ -21,3 +21,30 @@ body, html {
 .right{
     float:right;
 }
+ul.optionsList{
+    li{
+        height:20px;
+        color:#07080a;
+        line-height:20px;
+        font-size:11px;
+        font-weight: 800;
+        // border-bottom:1px solid grey;
+        padding: 0 6px; 
+        cursor: pointer;
+    }
+    .selected{
+        color:#fefdf9;
+        background: rgb(40,173,232);
+        background: linear-gradient(180deg, rgba(40,173,232,1) 0%, rgba(9,139,199,1) 4%, rgba(2,95,162,1) 54%, rgba(0,67,132,1) 100%);
+        &::after{
+            content: "";
+            background-image: url('.././images/right_arrow.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-top:4px;
+            float:right;
+            height:13px;
+            width:7px;
+        }
+    }
+}
