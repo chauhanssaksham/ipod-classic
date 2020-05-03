@@ -10,20 +10,20 @@ $body-color: #b4bcc5;
 // Styles
 .ipod {
   margin: 5% auto;
-  width: 20em;
-  height: 30em;
+  width: 20rem;
+  height: 30rem;
   background: #dadada;
-  border-radius: 1.3em;
-  box-shadow: inset 0 0 2.4em #555;
+  border-radius: 1.3rem;
+  box-shadow: inset 0 0 2.4rem #555;
   .screen {
     position: relative;
-    top: .9em;
+    top: .9rem;
     margin: 0 auto;
-    width: 18em;
-    height: 12em;
+    width: 18rem;
+    height: 12rem;
     background: #fff;
-    border-radius: .3125em;
-    border: 5px solid #22272a;
+    border-radius: .3125rem;
+    border: .3125rem solid #22272a;
     color: white;
     overflow: hidden;
     .screen-content{
@@ -36,116 +36,116 @@ $body-color: #b4bcc5;
   }
   
   .controls {
-    margin: 3.9em auto;
-    width: 11em;
-    height: 11em;
-    border: 3.5em solid #fff;
+    margin: 3.9rem auto;
+    width: 11rem;
+    height: 11rem;
+    border: 3.5rem solid #fff;
     border-radius: 50%;
-    box-shadow: inset 0 1em 3em #aaa;
-    box-shadow: 0 0 .1em #999;
+    box-shadow: inset 0 1rem 3rem #aaa;
+    box-shadow: 0 0 .1rem #999;
     .menu {
       position: relative;
-      top: -2.8em;
-      left: .5em;
+      top: -2.8rem;
+      left: .5rem;
       font: 300 100% sans-serif;
       color: $body-color;
       cursor: default;
     }
     .next {
       position: relative;
-      top: .4em;
-      left: 5.3em;
+      top: .4rem;
+      left: 5.3rem;
       width: 0;
       height: 0;
-      border-top: .35em solid transparent;
-      border-bottom: .35em solid transparent;
-      border-left: .7em solid $body-color;
+      border-top: .35rem solid transparent;
+      border-bottom: .35rem solid transparent;
+      border-left: .7rem solid $body-color;
       &::before {
         content: "";
         position: absolute;
-        top: -.3em;
+        top: -.3rem;
         left: 0;
-        border-top: .35em solid transparent;
-        border-bottom: .35em solid transparent;
-        border-left: .7em solid $body-color;
+        border-top: .35rem solid transparent;
+        border-bottom: .35rem solid transparent;
+        border-left: .7rem solid $body-color;
       }
       &::after {
         content: "";
         position: absolute;
-        top: -.3em;
-        left: .65em;
-        width: .14em;
-        height: .6em;
+        top: -.3rem;
+        left: .65rem;
+        width: .14rem;
+        height: .6rem;
         background: $body-color;
       }
     }
     .play {
       position: relative;
-      top: 4.5em;
-      left: 1.5em;
+      top: 4.5rem;
+      left: 1.5rem;
       width: 0;
       height: 0;
-      border-top: .35em solid transparent;
-      border-bottom: .35em solid transparent;
-      border-left: .7em solid $body-color;
+      border-top: .35rem solid transparent;
+      border-bottom: .35rem solid transparent;
+      border-left: .7rem solid $body-color;
       &::before {
         content: "";
         position: absolute;
-        top: -.3em;
-        left: .5em;
-        width: .14em;
-        height: .6em;
+        top: -.3rem;
+        left: .5rem;
+        width: .14rem;
+        height: .6rem;
         background: $body-color;
       }
       &::after {
         content: "";
         position: absolute;
-        top: -.3em;
-        left: .25em;
-        width: .14em;
-        height: .6em;
+        top: -.3rem;
+        left: .25rem;
+        width: .14rem;
+        height: .6rem;
         background: $body-color;
       }
     }
     .previous {
       position: relative;
-      top: -.7em;
-      left: -2.0em;
+      top: -.7rem;
+      left: -2.0rem;
       width: 0;
       height: 0;
-      border-top: .35em solid transparent;
-      border-right: .7em solid $body-color;
-      border-bottom: .35em solid transparent;
+      border-top: .35rem solid transparent;
+      border-right: .7rem solid $body-color;
+      border-bottom: .35rem solid transparent;
       &::before {
         content: "";
         position: absolute;
-        top: -.3em;
-        left: -.7em;
-        border-top: .35em solid transparent;
-        border-right: .7em solid $body-color;
-        border-bottom: .35em solid transparent;
+        top: -.3rem;
+        left: -.7rem;
+        border-top: .35rem solid transparent;
+        border-right: .7rem solid $body-color;
+        border-bottom: .35rem solid transparent;
       }
       &::after {
         content: "";
         position: absolute;
-        top: -.3em;
-        left: -0.8em;
-        width: .14em;
-        height: .65em;
+        top: -.3rem;
+        left: -0.8rem;
+        width: .14rem;
+        height: .65rem;
         background: $body-color;
       }
     }
   }
 }
 .top-bar{
-    height:16px;
+    height:1rem;
     width:100%;
-    border-bottom: 2px solid #415057;
+    border-bottom: .125rem solid #415057;
     background: rgb(224,230,230);
     background: linear-gradient(180deg, rgba(224,230,230,1) 0%, rgba(245,251,251,1) 5%, rgba(166,184,188,1) 50%, rgba(153,167,178,1) 55%, rgba(107,130,136,1) 100%);
     color: #070e16;
-    font-size: 9px;
+    font-size: .5625rem;
     font-weight: 800;
-    line-height:16px;
-    padding: 0 5px 0 6px;
+    line-height:1rem;
+    padding: 0 .3125rem 0 .375rem;
 }
