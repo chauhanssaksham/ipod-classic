@@ -1,0 +1,143 @@
+//
+// Main Sass file for Ipod
+//
+
+// Variables
+$body-color: #b4bcc5;
+
+// Placeholder selectors
+
+// Styles
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.ipod {
+  margin: 5% auto;
+  width: 20em;
+  height: 30em;
+  background: #dadada;
+  border-radius: 1.3em;
+  box-shadow: inset 0 0 2.4em #555;
+  .screen {
+    position: relative;
+    top: .9em;
+    margin: 0 auto;
+    width: 18em;
+    height: 12em;
+    background: #262626;
+    border-radius: .3125em;
+    border: 4px solid rgb(145, 145, 145);
+    color: white;
+    overflow: hidden;
+    .screen-content{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+        box-sizing: content-box; /* So the width will be 100% + 17px */
+    }
+  }
+  
+  .controls {
+    margin: 3.9em auto;
+    width: 11em;
+    height: 11em;
+    border: 3.5em solid #fff;
+    border-radius: 50%;
+    box-shadow: inset 0 1em 3em #aaa;
+    box-shadow: 0 0 .1em #999;
+    .menu {
+      position: relative;
+      top: -2.8em;
+      left: .5em;
+      font: 300 100% sans-serif;
+      color: $body-color;
+      cursor: default;
+    }
+    .next {
+      position: relative;
+      top: .4em;
+      left: 5.3em;
+      width: 0;
+      height: 0;
+      border-top: .35em solid transparent;
+      border-bottom: .35em solid transparent;
+      border-left: .7em solid $body-color;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -.3em;
+        left: 0;
+        border-top: .35em solid transparent;
+        border-bottom: .35em solid transparent;
+        border-left: .7em solid $body-color;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -.3em;
+        left: .65em;
+        width: .14em;
+        height: .6em;
+        background: $body-color;
+      }
+    }
+    .play {
+      position: relative;
+      top: 4.5em;
+      left: 1.5em;
+      width: 0;
+      height: 0;
+      border-top: .35em solid transparent;
+      border-bottom: .35em solid transparent;
+      border-left: .7em solid $body-color;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -.3em;
+        left: .5em;
+        width: .14em;
+        height: .6em;
+        background: $body-color;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -.3em;
+        left: .25em;
+        width: .14em;
+        height: .6em;
+        background: $body-color;
+      }
+    }
+    .previous {
+      position: relative;
+      top: -.7em;
+      left: -2.0em;
+      width: 0;
+      height: 0;
+      border-top: .35em solid transparent;
+      border-right: .7em solid $body-color;
+      border-bottom: .35em solid transparent;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -.3em;
+        left: -.7em;
+        border-top: .35em solid transparent;
+        border-right: .7em solid $body-color;
+        border-bottom: .35em solid transparent;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -.3em;
+        left: -0.8em;
+        width: .14em;
+        height: .65em;
+        background: $body-color;
+      }
+    }
+  }
+}
