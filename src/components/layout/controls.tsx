@@ -5,9 +5,10 @@ class Screen extends Component{
         return (
             <div className="controls">
                 <span className="menu">MENU</span>
-                <div className="next"></div>
-                <div className="play"></div>
-                <div className="previous"></div>
+                <span className="next"><i className="material-icons md-dark">fast_forward</i></span>
+                <span className="previous"><i className="material-icons">fast_rewind</i></span>
+                <span className="play_pause"><i className="material-icons">play_arrow</i><i className="material-icons">pause</i></span>
+                <span className="home_button"></span>
             </div>
         )
     }

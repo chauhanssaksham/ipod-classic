@@ -9,6 +9,7 @@ $body-color: #b4bcc5;
 
 // Styles
 .ipod {
+    user-select: none;
   margin: 5% auto;
   width: 20rem;
   height: 30rem;
@@ -41,99 +42,59 @@ $body-color: #b4bcc5;
     height: 11rem;
     border: 3.5rem solid #fff;
     border-radius: 50%;
+    padding:0;
     box-shadow: inset 0 1rem 3rem #aaa;
     box-shadow: 0 0 .1rem #999;
+    color: $body-color;
+    position: relative;
+    text-align:center;
+    cursor: default;
+    span i{
+        font-size: 1.5rem!important;
+        line-height: 1.5rem;
+    }
     .menu {
-      position: relative;
-      top: -2.8rem;
-      left: .5rem;
-      font: 300 100% sans-serif;
-      color: $body-color;
-      cursor: default;
+      position: absolute;
+      top:-2rem;
+      margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0.9rem;
     }
     .next {
-      position: relative;
-      top: .4rem;
-      left: 5.3rem;
-      width: 0;
-      height: 0;
-      border-top: .35rem solid transparent;
-      border-bottom: .35rem solid transparent;
-      border-left: .7rem solid $body-color;
-      &::before {
-        content: "";
         position: absolute;
-        top: -.3rem;
-        left: 0;
-        border-top: .35rem solid transparent;
-        border-bottom: .35rem solid transparent;
-        border-left: .7rem solid $body-color;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        top: -.3rem;
-        left: .65rem;
-        width: .14rem;
-        height: .6rem;
-        background: $body-color;
-      }
+        top: 50%;
+        margin-top: -.75rem;
+        right:-2.5rem;
     }
-    .play {
-      position: relative;
-      top: 4.5rem;
-      left: 1.5rem;
-      width: 0;
-      height: 0;
-      border-top: .35rem solid transparent;
-      border-bottom: .35rem solid transparent;
-      border-left: .7rem solid $body-color;
-      &::before {
-        content: "";
+    .play_pause {
         position: absolute;
-        top: -.3rem;
-        left: .5rem;
-        width: .14rem;
-        height: .6rem;
-        background: $body-color;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        top: -.3rem;
-        left: .25rem;
-        width: .14rem;
-        height: .6rem;
-        background: $body-color;
-      }
+        bottom:-2.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font: 200 100% sans-serif;
+        i{
+            margin:-0.4rem;
+        }
     }
     .previous {
-      position: relative;
-      top: -.7rem;
-      left: -2.0rem;
-      width: 0;
-      height: 0;
-      border-top: .35rem solid transparent;
-      border-right: .7rem solid $body-color;
-      border-bottom: .35rem solid transparent;
-      &::before {
-        content: "";
-        position: absolute;
-        top: -.3rem;
-        left: -.7rem;
-        border-top: .35rem solid transparent;
-        border-right: .7rem solid $body-color;
-        border-bottom: .35rem solid transparent;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        top: -.3rem;
-        left: -0.8rem;
-        width: .14rem;
-        height: .65rem;
-        background: $body-color;
-      }
+      position: absolute;
+      top: 50%;
+      margin-top: -0.75rem;
+      left:-2.5rem;
+    }
+    .home_button{
+        width: 4rem;
+        height: 4rem;
+        display: block;
+        border-radius: 50%;
+        padding:0;
+        cursor: pointer;
     }
   }
 }
