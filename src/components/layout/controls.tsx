@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import ZingTouch from 'zingtouch'
-import { Link } from 'react-router-dom';
 import history from '../../history'
 
 interface Props{
-    moveHomeMenuDown: () => void,
-    moveHomeMenuUp: () => void
-    HomeMenu: {options: Array<string>, select: number}
+    moveMenuDown: () => void,
+    moveMenuUp: () => void
+    HomeMenu: {options: Array<string>, select: number},
+    MusicMenu: {options: Array<string>, select: number},
+    changeCurrentMenu: (newVal: string|null)=>void,
+    CurrentMenu: string | null
 }
 
 interface State{
@@ -26,31 +28,50 @@ class Controls extends Component<Props, State>{
         const controlArea = document.getElementById('interactable');
         const rotateRegion = new ZingTouch.Region(controlArea);
         let currentAngle = 0;
-        const {moveHomeMenuDown, moveHomeMenuUp} = this.props;
+        const {moveMenuDown, moveMenuUp} = this.props;
         rotateRegion.bind(controlArea, 'rotate', function(e:any){
             const detail:Detail = e.detail;
             currentAngle += detail.distanceFromLast;
             if (currentAngle > 30){
-                moveHomeMenuDown();
-                console.log("Move Down");
+                moveMenuDown();
+                // console.log("Move Down");
                 currentAngle = 0;
             }
             if (currentAngle < -30){
-                moveHomeMenuUp();
-                console.log("Move up");
+                moveMenuUp();
+                // console.log("Move up");
                 currentAngle = 0;
             }
         });
     }
+    sendHome: ()=>void = ()=> {
+        this.props.changeCurrentMenu('home');
+        history.push('/');
+    }
     handleLink : ()=> void = ()=>{
-        history.push(`/${
-            this.props.HomeMenu.options[this.props.HomeMenu.select]
-    }`)
+        if (this.props.CurrentMenu === 'home'){     //If the current menu is home menu
+            if (this.props.HomeMenu.options[this.props.HomeMenu.select] === 'music'){   //and the selected link is the music link
+                // Set currentMenu to Music
+                this.props.changeCurrentMenu('music');
+            }
+            else {
+                //Set the current menu to null
+                this.props.changeCurrentMenu(null);
+            }
+            history.push(`/${
+                this.props.HomeMenu.options[this.props.HomeMenu.select]
+            }`);
+        } else if (this.props.CurrentMenu === 'music'){
+            //Handle Music Menu
+            history.push(`/music/${
+                this.props.MusicMenu.options[this.props.MusicMenu.select]
+            }`);
+        }
     }
     render(){
         return (
             <div className="controls" id="interactable">
-                <Link to='/'><span className="menu">MENU</span></Link>
+                <span className="menu" onClick={this.sendHome}>MENU</span>
                 <span className="next"><i className="material-icons md-dark">fast_forward</i></span>
                 <span className="previous"><i className="material-icons">fast_rewind</i></span>
                 <span className="play_pause"><i className="material-icons">play_arrow</i><i className="material-icons">pause</i></span>

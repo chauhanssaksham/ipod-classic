@@ -8,7 +8,8 @@ import SettingsPage from '../pages/SettingsPage'
 import {Switch, Route} from 'react-router-dom'
 
 interface Props{
-    HomeMenu: {options: Array<string>, select: number}
+    HomeMenu: {options: Array<string>, select: number},
+    MusicMenu: {options: Array<string>, select: number}
 }
 
 class Screen extends Component<Props, {}>{
@@ -21,7 +22,7 @@ class Screen extends Component<Props, {}>{
                             <HomePage HomeMenu={this.props.HomeMenu} />
                         </Route>
                         <Route exact path='/music'>
-                            <MusicPage/>
+                            <MusicPage MusicMenu={this.props.MusicMenu}/>
                         </Route>
                         <Route exact path='/youtube'>
                             <YoutubePage/>
@@ -33,6 +34,9 @@ class Screen extends Component<Props, {}>{
                             <GamesPage/>
                         </Route>
                         <Route exact path='/settings'>
+                            <SettingsPage/>
+                        </Route>
+                        <Route path='/music/songs'>
                             <SettingsPage/>
                         </Route>
                     </Switch>
