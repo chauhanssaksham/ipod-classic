@@ -8,14 +8,19 @@ interface State{
     
 }
 interface Props{
-    HomeMenu: {options: Array<string>, select: number}
+    setList: (newList: string[]) => void,
+    optionsList: string[],
+    select: number
 }
 
+const HomePageOptions = ['music', 'youtube', 'photos', 'games', 'settings'];
 class HomePage extends Component<Props, State>{
-
+    componentDidMount(){
+        this.props.setList(HomePageOptions);
+    }
     render(){
-        const menuOptions = this.props.HomeMenu.options;
-        const selectedIndex = this.props.HomeMenu.select;
+        const menuOptions:string[] = this.props.optionsList;
+        const selectedIndex:number = this.props.select % menuOptions.length;
         return (
             <>
             <div className="home-section">

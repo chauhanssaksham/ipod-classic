@@ -7,14 +7,19 @@ interface State{
     
 }
 interface Props{
-    MusicMenu: {options: Array<string>, select: number}
+    setList: (newList: string[]) => void,
+    optionsList: string[],
+    select: number
 }
+const MusicPageOptions = ['songs', 'artists', 'albums'];
 
-class HomePage extends Component<Props, State>{
-
+class MusicPage extends Component<Props, State>{
+    componentDidMount(){
+        this.props.setList(MusicPageOptions);
+    }
     render(){
-        const menuOptions = this.props.MusicMenu.options;
-        const selectedIndex = this.props.MusicMenu.select;
+        const menuOptions: string[] = this.props.optionsList;
+        const selectedIndex:number = this.props.select % menuOptions.length;
         return (
             <>
             <div className="full-section">
@@ -40,4 +45,4 @@ class HomePage extends Component<Props, State>{
     }
 }
 
-export default HomePage
+export default MusicPage

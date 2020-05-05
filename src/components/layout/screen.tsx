@@ -8,8 +8,9 @@ import SettingsPage from '../pages/SettingsPage'
 import {Switch, Route} from 'react-router-dom'
 
 interface Props{
-    HomeMenu: {options: Array<string>, select: number},
-    MusicMenu: {options: Array<string>, select: number}
+    setList: (newList: string[]) => void,
+    optionsList: Array<string>,
+    select: number
 }
 
 class Screen extends Component<Props, {}>{
@@ -19,10 +20,10 @@ class Screen extends Component<Props, {}>{
                 <div className="screen-content flex">
                     <Switch>
                         <Route exact path='/'>
-                            <HomePage HomeMenu={this.props.HomeMenu} />
+                            <HomePage setList={this.props.setList} select={this.props.select} optionsList={this.props.optionsList} />
                         </Route>
                         <Route exact path='/music'>
-                            <MusicPage MusicMenu={this.props.MusicMenu}/>
+                            <MusicPage setList={this.props.setList} select={this.props.select} optionsList={this.props.optionsList} />
                         </Route>
                         <Route exact path='/youtube'>
                             <YoutubePage/>

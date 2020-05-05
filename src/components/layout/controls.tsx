@@ -5,10 +5,8 @@ import history from '../../history'
 interface Props{
     moveMenuDown: () => void,
     moveMenuUp: () => void
-    HomeMenu: {options: Array<string>, select: number},
-    MusicMenu: {options: Array<string>, select: number},
-    changeCurrentMenu: (newVal: string|null)=>void,
-    CurrentMenu: string | null
+    optionsList: string[],
+    select: number
 }
 
 interface State{
@@ -45,27 +43,17 @@ class Controls extends Component<Props, State>{
         });
     }
     sendHome: ()=>void = ()=> {
-        this.props.changeCurrentMenu('home');
         history.push('/');
     }
+
     handleLink : ()=> void = ()=>{
-        if (this.props.CurrentMenu === 'home'){     //If the current menu is home menu
-            if (this.props.HomeMenu.options[this.props.HomeMenu.select] === 'music'){   //and the selected link is the music link
-                // Set currentMenu to Music
-                this.props.changeCurrentMenu('music');
-            }
-            else {
-                //Set the current menu to null
-                this.props.changeCurrentMenu(null);
-            }
-            history.push(`/${
-                this.props.HomeMenu.options[this.props.HomeMenu.select]
-            }`);
-        } else if (this.props.CurrentMenu === 'music'){
-            //Handle Music Menu
-            history.push(`/music/${
-                this.props.MusicMenu.options[this.props.MusicMenu.select]
-            }`);
+        let currentPath:string = history.createHref(history.location);
+        let urlPush: string = this.props.optionsList[this.props.select];
+        // console.log(history.createHref(history.location));
+        if (currentPath === '/'){
+            history.push(`/${urlPush}`);
+        } else {
+            history.push(`${currentPath}/${urlPush}`);
         }
     }
     render(){
