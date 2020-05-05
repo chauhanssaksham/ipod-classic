@@ -21,12 +21,14 @@ class App extends Component<{}, State> {
         this.state = initialState;
     }
     moveMenuDown= () => {
+        if (this.state.optionsList.length===0) return;
             this.setState(prevState => {
                 return {select:((prevState.select+1)%prevState.optionsList.length)};
             }
             );
     }
     moveMenuUp = () => {
+        if (this.state.optionsList.length===0) return;
             this.setState(prevState => {
                 let newSelect = prevState.select-1;
                 if (newSelect < 0){

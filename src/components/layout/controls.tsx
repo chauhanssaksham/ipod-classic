@@ -47,6 +47,9 @@ class Controls extends Component<Props, State>{
     }
 
     handleLink : ()=> void = ()=>{
+        if (this.props.optionsList.length <= 0){
+            return;
+        }
         let currentPath:string = history.createHref(history.location);
         let urlPush: string = this.props.optionsList[this.props.select];
         // console.log(history.createHref(history.location));

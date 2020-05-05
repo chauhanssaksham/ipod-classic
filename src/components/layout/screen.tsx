@@ -25,19 +25,19 @@ class Screen extends Component<Props, {}>{
                             <MusicPage setList={this.props.setList} select={this.props.select} />
                         </Route>
                         <Route exact path='/youtube'>
-                            <YoutubePage/>
+                            <YoutubePage setList={this.props.setList}/>
                         </Route>
                         <Route exact path='/photos'>
-                            <PhotosPage/>
+                            <PhotosPage setList={this.props.setList}/>
                         </Route>
                         <Route exact path='/games'>
-                            <GamesPage/>
+                            <GamesPage setList={this.props.setList}/>
                         </Route>
                         <Route exact path='/settings'>
-                            <SettingsPage/>
+                            <SettingsPage setList={this.props.setList}/>
                         </Route>
                         <Route path='/music/songs'>
-                            <SettingsPage/>
+                            <SettingsPage setList={this.props.setList}/>
                         </Route>
                     </Switch>
                 </div>
