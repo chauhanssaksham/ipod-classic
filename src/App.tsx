@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import './styles/main.scss'
 import Screen from './components/layout/screen'
 import Controls from './components/layout/controls'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {Router} from 'react-router-dom'
+import history from './history'
 
 interface State{
     HomeMenu: {options: Array<string>, select: number},
     HomeButtonLink: string
 }
-
 const initialState = {
     HomeMenu : {options: ['Music', 'Youtube', 'Photos', 'Games', 'Settings'], select: 0},
     HomeButtonLink: '/music'
 }
+
 
 class App extends Component<{}, State> {
     constructor(props: {}){
@@ -40,7 +41,7 @@ class App extends Component<{}, State> {
 
     render(){
         return (
-            <Router>
+            <Router history={history}>
             <div className="ipod">
                 <Screen HomeMenu={this.state.HomeMenu} />
                 <Controls HomeMenu={this.state.HomeMenu} moveHomeMenuDown={this.moveHomeMenuDown} moveHomeMenuUp={this.moveHomeMenuUp}/>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ZingTouch from 'zingtouch'
 import { Link } from 'react-router-dom';
+import history from '../../history'
 
 interface Props{
     moveHomeMenuDown: () => void,
@@ -41,6 +42,11 @@ class Controls extends Component<Props, State>{
             }
         });
     }
+    handleLink : ()=> void = ()=>{
+        history.push(`/${
+            this.props.HomeMenu.options[this.props.HomeMenu.select]
+    }`)
+    }
     render(){
         return (
             <div className="controls" id="interactable">
@@ -48,7 +54,7 @@ class Controls extends Component<Props, State>{
                 <span className="next"><i className="material-icons md-dark">fast_forward</i></span>
                 <span className="previous"><i className="material-icons">fast_rewind</i></span>
                 <span className="play_pause"><i className="material-icons">play_arrow</i><i className="material-icons">pause</i></span>
-                <Link to={`/${this.props.HomeMenu.options[this.props.HomeMenu.select]}`}><span className="home_button"></span></Link>
+                <span className="home_button" onClick={this.handleLink}></span>
             </div>
         )
     }
