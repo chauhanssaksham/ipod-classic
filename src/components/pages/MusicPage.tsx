@@ -8,7 +8,6 @@ interface State{
 }
 interface Props{
     setList: (newList: string[]) => void,
-    optionsList: string[],
     select: number
 }
 const MusicPageOptions = ['songs', 'artists', 'albums'];
@@ -18,7 +17,7 @@ class MusicPage extends Component<Props, State>{
         this.props.setList(MusicPageOptions);
     }
     render(){
-        const menuOptions: string[] = this.props.optionsList;
+        const menuOptions: string[] = MusicPageOptions;
         const selectedIndex:number = this.props.select % menuOptions.length;
         return (
             <>

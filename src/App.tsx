@@ -47,8 +47,7 @@ class App extends Component<{}, State> {
             <div className="ipod">
                 <Screen 
                     setList={this.setList}
-                    select={this.state.select} 
-                    optionsList={this.state.optionsList}
+                    select={this.state.select}
                 />
                 <Controls 
                     select={this.state.select} 

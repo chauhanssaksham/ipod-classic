@@ -9,7 +9,6 @@ interface State{
 }
 interface Props{
     setList: (newList: string[]) => void,
-    optionsList: string[],
     select: number
 }
 
@@ -19,7 +18,7 @@ class HomePage extends Component<Props, State>{
         this.props.setList(HomePageOptions);
     }
     render(){
-        const menuOptions:string[] = this.props.optionsList;
+        const menuOptions:string[] = HomePageOptions;
         const selectedIndex:number = this.props.select % menuOptions.length;
         return (
             <>

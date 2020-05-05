@@ -9,7 +9,6 @@ import {Switch, Route} from 'react-router-dom'
 
 interface Props{
     setList: (newList: string[]) => void,
-    optionsList: Array<string>,
     select: number
 }
 
@@ -20,10 +19,10 @@ class Screen extends Component<Props, {}>{
                 <div className="screen-content flex">
                     <Switch>
                         <Route exact path='/'>
-                            <HomePage setList={this.props.setList} select={this.props.select} optionsList={this.props.optionsList} />
+                            <HomePage setList={this.props.setList} select={this.props.select} />
                         </Route>
                         <Route exact path='/music'>
-                            <MusicPage setList={this.props.setList} select={this.props.select} optionsList={this.props.optionsList} />
+                            <MusicPage setList={this.props.setList} select={this.props.select} />
                         </Route>
                         <Route exact path='/youtube'>
                             <YoutubePage/>
