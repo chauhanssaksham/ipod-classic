@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import ZingTouch from 'zingtouch'
 
 interface Props{
-
+    moveHomeMenuDown: () => void,
+    moveHomeMenuUp: () => void
 }
 
 interface State{
@@ -16,19 +17,23 @@ interface Detail{
     events: Array<any>
 }
 
-class Screen extends Component<Props, State>{
+class Controls extends Component<Props, State>{
+      
     componentDidMount(){
         const controlArea = document.getElementById('interactable');
         const rotateRegion = new ZingTouch.Region(controlArea);
         let currentAngle = 0;
+        const {moveHomeMenuDown, moveHomeMenuUp} = this.props;
         rotateRegion.bind(controlArea, 'rotate', function(e:any){
             const detail:Detail = e.detail;
             currentAngle += detail.distanceFromLast;
-            if (currentAngle > 90){
-                console.log("Move down");
+            if (currentAngle > 30){
+                moveHomeMenuDown();
+                console.log("Move Down");
                 currentAngle = 0;
             }
-            if (currentAngle < -90){
+            if (currentAngle < -30){
+                moveHomeMenuUp();
                 console.log("Move up");
                 currentAngle = 0;
             }
@@ -47,5 +52,5 @@ class Screen extends Component<Props, State>{
     }
 };
 
-export default Screen
+export default Controls
 
