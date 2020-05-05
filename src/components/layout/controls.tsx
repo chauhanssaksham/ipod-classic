@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import ZingTouch from 'zingtouch'
+import { Link } from 'react-router-dom';
 
 interface Props{
     moveHomeMenuDown: () => void,
     moveHomeMenuUp: () => void
+    HomeMenu: {options: Array<string>, select: number}
 }
 
 interface State{
@@ -18,7 +20,7 @@ interface Detail{
 }
 
 class Controls extends Component<Props, State>{
-      
+
     componentDidMount(){
         const controlArea = document.getElementById('interactable');
         const rotateRegion = new ZingTouch.Region(controlArea);
@@ -42,11 +44,11 @@ class Controls extends Component<Props, State>{
     render(){
         return (
             <div className="controls" id="interactable">
-                <span className="menu">MENU</span>
+                <Link to='/'><span className="menu">MENU</span></Link>
                 <span className="next"><i className="material-icons md-dark">fast_forward</i></span>
                 <span className="previous"><i className="material-icons">fast_rewind</i></span>
                 <span className="play_pause"><i className="material-icons">play_arrow</i><i className="material-icons">pause</i></span>
-                <span className="home_button"></span>
+                <Link to={`/${this.props.HomeMenu.options[this.props.HomeMenu.select]}`}><span className="home_button"></span></Link>
             </div>
         )
     }

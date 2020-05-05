@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import './styles/main.scss'
 import Screen from './components/layout/screen'
 import Controls from './components/layout/controls'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 interface State{
-    HomeMenu: {options: Array<string>, select: number}
+    HomeMenu: {options: Array<string>, select: number},
+    HomeButtonLink: string
 }
 
 const initialState = {
-    HomeMenu : {options: ['Music', 'Youtube', 'Photos', 'Games', 'Settings'], select: 0}
+    HomeMenu : {options: ['Music', 'Youtube', 'Photos', 'Games', 'Settings'], select: 0},
+    HomeButtonLink: '/music'
 }
 
 class App extends Component<{}, State> {
@@ -37,10 +40,13 @@ class App extends Component<{}, State> {
 
     render(){
         return (
+            <Router>
             <div className="ipod">
                 <Screen HomeMenu={this.state.HomeMenu} />
-                <Controls  moveHomeMenuDown={this.moveHomeMenuDown} moveHomeMenuUp={this.moveHomeMenuUp}/>
+                <Controls HomeMenu={this.state.HomeMenu} moveHomeMenuDown={this.moveHomeMenuDown} moveHomeMenuUp={this.moveHomeMenuUp}/>
             </div>
+            </Router>
+
         );
     }
 }

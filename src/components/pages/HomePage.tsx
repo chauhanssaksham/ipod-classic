@@ -11,7 +11,7 @@ interface Props{
     HomeMenu: {options: Array<string>, select: number}
 }
 
-class HomeScreen extends Component<Props, State>{
+class HomePage extends Component<Props, State>{
 
     render(){
         const menuOptions = this.props.HomeMenu.options;
@@ -44,4 +44,4 @@ class HomeScreen extends Component<Props, State>{
     }
 }
 
-export default HomeScreen
+export default HomePage
