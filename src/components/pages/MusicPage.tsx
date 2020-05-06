@@ -10,9 +10,12 @@ interface Props{
     setList: (newList: string[]) => void,
     select: number
 }
+
+//Options that will be passed on to the app level state 'optionsList'
 const MusicPageOptions = ['songs', 'artists', 'albums'];
 
 class MusicPage extends Component<Props, State>{
+    // Set the app level state 'optionsList' according to the MUSIC page
     componentDidMount(){
         this.props.setList(MusicPageOptions);
     }
@@ -21,7 +24,8 @@ class MusicPage extends Component<Props, State>{
         const selectedIndex:number = this.props.select % menuOptions.length;
         return (
             <>
-            <div className="full-section">
+            <div className="full-section"> {/* Covers the full screen width*/}
+                {/* The top notifications style bar */}
                 <nav className="top-bar">
                     <div className="left">
                         Music
@@ -33,6 +37,7 @@ class MusicPage extends Component<Props, State>{
                         <img src={playButton} style={{marginTop:2, marginRight:4, height:9, width:10}} alt="100%"/>
                     </div>
                 </nav>
+                {/* The options list */}
                 <ul className="optionsList">
                     {menuOptions.map((option, index) => {
                         return <li className={index===selectedIndex?'selected':''} key={index}>{option}</li>

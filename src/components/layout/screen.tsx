@@ -17,7 +17,7 @@ class Screen extends Component<Props, {}>{
     render(){
         return (
             <div className="screen">
-                <div className="screen-content flex">
+                <div className="screen-content flex">   {/* Extra wrapper needed for CSS styling, to hide an unwanted scrollbar*/}
                     <Switch>
                         <Route exact path='/'>
                             <HomePage setList={this.props.setList} select={this.props.select} />
@@ -37,7 +37,7 @@ class Screen extends Component<Props, {}>{
                         <Route exact path='/settings'>
                             <SettingsPage setList={this.props.setList}/>
                         </Route>
-                        <Route path='/music/'>
+                        <Route path='/music/'> {/* Any path that is prefixed by '/music/' is multiplexed here, basically '/music/*' */}
                             <MusicPlayer setList={this.props.setList}/>
                         </Route>
                     </Switch>

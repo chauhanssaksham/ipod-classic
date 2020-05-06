@@ -12,17 +12,23 @@ interface Props{
     select: number
 }
 
+//Options that will be passed on to the app level state 'optionsList'
 const HomePageOptions = ['music', 'youtube', 'photos', 'games', 'settings'];
+
 class HomePage extends Component<Props, State>{
+    // Set the app level state 'optionsList' according to the home page
     componentDidMount(){
         this.props.setList(HomePageOptions);
     }
     render(){
         const menuOptions:string[] = HomePageOptions;
         const selectedIndex:number = this.props.select % menuOptions.length;
+
         return (
             <>
+            {/* Left half of the home */}
             <div className="home-section">
+                {/* The top notification bar */}
                 <nav className="top-bar">
                     <div className="left">
                         iPod
@@ -34,12 +40,14 @@ class HomePage extends Component<Props, State>{
                         <img src={playButton} style={{marginTop:2, marginRight:4, height:9, width:10}} alt="100%"/>
                     </div>
                 </nav>
+                {/* The options */}
                 <ul className="optionsList">
                     {menuOptions.map((option, index) => {
                         return <li className={index===selectedIndex?'selected':''} key={index}>{option}</li>
                     })}
                 </ul>
             </div>
+            {/* Right half of the home */}
             <div className="home-section">
                 <img src={BG} style={{width:'100%', height:'100%'}} alt=""/>
             </div>
