@@ -5,6 +5,7 @@ import YoutubePage from '../pages/YoutubePage'
 import GamesPage from '../pages/GamesPage'
 import PhotosPage from '../pages/PhotosPage'
 import SettingsPage from '../pages/SettingsPage'
+import MusicPlayer from '../pages/MusicPlayer'
 import {Switch, Route} from 'react-router-dom'
 
 interface Props{
@@ -36,8 +37,8 @@ class Screen extends Component<Props, {}>{
                         <Route exact path='/settings'>
                             <SettingsPage setList={this.props.setList}/>
                         </Route>
-                        <Route path='/music/songs'>
-                            <SettingsPage setList={this.props.setList}/>
+                        <Route path='/music/'>
+                            <MusicPlayer setList={this.props.setList}/>
                         </Route>
                     </Switch>
                 </div>
