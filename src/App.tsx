@@ -5,7 +5,7 @@ import Controls from './components/layout/controls'
 import {Router} from 'react-router-dom'
 import history from './history'
 
-
+//Typescript interface for the state of the App component
 interface State{
     optionsList: Array<string>,     //The list of options on the screen, is an array of strings set by the page currently rendered
     select: number                  //The index of the option selected
@@ -40,8 +40,9 @@ class App extends Component<{}, State> {
                 return {select:newSelect};
             });
     }
-    //Each page rendered is provided setList so they can set an app level list to be displayed
-    //The list of options needs to be app level so that 'controls' component can utilize this list to for links
+    //Each page (component) rendered is passed the setList method in their props so they can set an app level list to be displayed
+    // (This is required in this project since no central state management like Redux is used here)
+    //The list of options needs to be app level so that 'Controls' component can utilize this list in page navigation programatically
     setList = (newList: Array<string>)=>{
         this.setState({
             optionsList: newList,
@@ -51,7 +52,7 @@ class App extends Component<{}, State> {
 
     render(){
         return (
-            <Router history={history}>
+            <Router history={history}>  {/* Using the history API (utilizing react-router-dom) */}
                 <div className="ipod">
                     {/* The Top component, the screen */}
                     <Screen 
@@ -62,8 +63,8 @@ class App extends Component<{}, State> {
                     <Controls 
                         select={this.state.select} 
                         optionsList={this.state.optionsList} 
-                        moveMenuDown={this.moveMenuDown} 
-                        moveMenuUp={this.moveMenuUp}
+                        moveMenuDown={this.moveMenuDown} //Method to move the menu down (on clockwise drag)
+                        moveMenuUp={this.moveMenuUp} //Method to move the menu up (on anti-clockwise drag)
                     />
                 </div>
             </Router>
