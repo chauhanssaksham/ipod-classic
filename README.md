@@ -2,7 +2,10 @@
 
 This is a project made for the coding ninjas ADVANCE Front-end React course, built with React and Typescript.
 
-Demo: https://mydrive-demo.herokuapp.com/
+Github repo [here](https://github.com/chauhanssaksham/ipod-classic)
+
+Demo: https://hungry-brattain-f73110.netlify.app/
+
 - Note: The Upload and Download Features, and other core features, are disabled in the demo. 
 
 ## Installation
